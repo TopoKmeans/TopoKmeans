@@ -155,14 +155,14 @@ TopoKmeans = function(data, nKNN, nClust=2, power = 5, sigma=0.05,dist_matrix=FA
 covid_us_data <- read.csv("COVID_US_Datasets/covid19us_data_01_11_2021.csv",row.names = 1)
 res <- TopoKmeans(covid_us_data,nKNN=48, nClust=4, power=15, sigma =20, 
                   preserveOrdering=FALSE, null_dim = TRUE, first_dim = FALSE) 
-topockpd_SIL <- cluster::silhouette(res$results$Cls, dist(covid_us_data, method = "euclidean"))
-avg_topockpd_SIL <- mean(topockpd_SIL[, 3])
-avg_topockpd_SIL
+topokmeans_SIL <- cluster::silhouette(res$results$Cls, dist(covid_us_data, method = "euclidean"))
+avg_topokmeans_SIL <- mean(topokmeans_SIL[, 3])
+avg_topokmeans_SIL
 
 # based on Topological distance #
 covid_us_data <- read.csv("COVID_US_Datasets/covid19us_data_01_11_2021.csv",row.names = 1)
 res <- TopoKmeans(covid_us_data,nKNN=48, nClust=4, power=15, sigma =20, 
                   preserveOrdering=FALSE, null_dim = TRUE, first_dim = FALSE) 
-topockpd_SIL <- cluster::silhouette(res$results$Cls, res$dist_object)
-avg_topockpd_SIL <- mean(topockpd_SIL[, 3])
-avg_topockpd_SIL
+topokmeans_SIL <- cluster::silhouette(res$results$Cls, res$dist_object)
+avg_topokmeans_SIL <- mean(topokmeans_SIL[, 3])
+avg_topokmeans_SIL
