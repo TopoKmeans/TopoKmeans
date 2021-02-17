@@ -11,10 +11,13 @@
 
 ## Usage
 ```R
+# load a COVID-19 data, e.g., January 11, 2021, from COVID_US_Datasets folder
 covid_us_data <- read.csv("COVID_US_Datasets/covid19us_data_01_11_2021.csv",row.names = 1)
-res <- TopoKmeans(covid_us_data,nKNN=48, nClust=4, power=15, sigma =20, 
-                  preserveOrdering=FALSE, null_dim = TRUE, first_dim = FALSE) 
+# run TopoKmeans model on January 11, 2021 COVID-19 data by setting different hyperparameters
+res <- TopoKmeans(covid_us_data,nKNN=48, nClust=4, power=15, sigma =20, preserveOrdering=FALSE, null_dim = TRUE, first_dim = FALSE) 
+# compute silhouette information according to a given clustering in 4 clusters
 topokmeans_SIL <- cluster::silhouette(res$results$Cls, res$dist_object)
+# compute the average silhouette coefficient
 avg_topokmeans_SIL <- mean(topokmeans_SIL[, 3])
 ```
 
