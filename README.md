@@ -9,5 +9,14 @@
 
 * Baselines.R includes the following baselines: (1) TopoCBN; (2) K-means; and (3) Agglomerative Hierarchical clustering.
 
+## Usage
+```R
+covid_us_data <- read.csv("COVID_US_Datasets/covid19us_data_01_11_2021.csv",row.names = 1)
+res <- TopoKmeans(covid_us_data,nKNN=48, nClust=4, power=15, sigma =20, 
+                  preserveOrdering=FALSE, null_dim = TRUE, first_dim = FALSE) 
+topokmeans_SIL <- cluster::silhouette(res$results$Cls, res$dist_object)
+avg_topokmeans_SIL <- mean(topokmeans_SIL[, 3])
+```
+
 ## Requirements
-R version 3.6.3; Packages: covid19us, kernlab, TDA, FCPS, and FNN.
+R version 3.6.3; Packages: covid19us, cluster, kernlab, TDA, FCPS, and FNN.
