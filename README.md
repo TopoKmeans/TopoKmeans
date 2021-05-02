@@ -5,9 +5,9 @@
 
 * Dataset_generation.R includes the procedure for COVID-19 dataset generation from covid19us pacakge.
 
-* TopoKmeans_model.R includes the proposed TopoKmeans function.
+* TopoKmeans_model.R includes the proposed TopoKmeans function and the codes for reproducing results in Table 1.
 
-* Baselines.R includes the following baselines: (1) TopoCBN; (2) K-means; and (3) Agglomerative Hierarchical clustering.
+* Baselines.R includes the following baselines: (1) TopoCBN, (2) K-means, (3) K-means over vectorized persistence diagram (PD), and (4) Agglomerative Hierarchical clustering.
 
 ## Usage
 ```R
