@@ -43,7 +43,7 @@ TopoKmeans = function(data, nKNN, nClust=2, power = 5, sigma=0.05,dist_matrix=FA
     # compute PD of Rips filtration
     PD<-filtrationDiag(filtration = ripsFltr, maxdimension = 1)$diagram
     PD[PD[,3]==Inf,3]=maxscale
-    dimM[i] = nrow(PD) #67
+    dimM[i] = nrow(PD)
     
     # pot
     # Pdata0 = PD[PD[,1]==0,2:3]
@@ -132,7 +132,6 @@ TopoKmeans = function(data, nKNN, nClust=2, power = 5, sigma=0.05,dist_matrix=FA
     }
   }
   
-  
   ############################
   # Performing clustering
   ############################
@@ -141,6 +140,7 @@ TopoKmeans = function(data, nKNN, nClust=2, power = 5, sigma=0.05,dist_matrix=FA
   
   return(list(results=res, persistence=persistence, dist_object = dist))
 }
+
 
 
 # Peformances of TopoKmeans in Table 1
